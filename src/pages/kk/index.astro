@@ -46,8 +46,17 @@ const plans = [
 
 <Layout title={t.meta.title} description={t.meta.description} lang={lang}>
   <div class="min-h-screen bg-background">
+    <!-- Promo Banner -->
+    <div class="bg-gradient-to-r from-primary to-[#D52027] text-primary-foreground py-2 px-4 text-center text-sm sticky top-0 z-50">
+      <span class="hidden sm:inline">🎁 Промокодты пайдаланыңыз </span>
+      <span class="sm:hidden">🎁 Промокод </span>
+      <code class="bg-white/20 px-2 py-0.5 rounded font-bold mx-1">FREETEST</code>
+      <span class="hidden sm:inline"> және 3 күн тегін қолданыңыз!</span>
+      <span class="sm:hidden"> = 3 күн тегін!</span>
+    </div>
+
     <!-- Header -->
-    <header class="border-b sticky top-0 bg-background/95 backdrop-blur z-50">
+    <header class="border-b sticky top-[36px] bg-background/95 backdrop-blur z-40">
       <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <Logo size="md" />
         <div class="flex items-center gap-4">
