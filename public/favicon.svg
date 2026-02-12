@@ -1,13 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48" fill="none">
-  <defs>
-    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#D52027" />
-      <stop offset="100%" style="stop-color:#9B1519" />
-    </linearGradient>
-  </defs>
-  <circle cx="24" cy="24" r="22" fill="url(#logoGradient)" />
-  <path d="M12 20L22 20L22 14L32 22L22 30L22 24L12 24Z" fill="white" opacity="0.95" />
-  <path d="M16 30L23 30L23 27L29 32L23 37L23 34L16 34Z" fill="white" opacity="0.6" />
-  <circle cx="35" cy="15" r="5" fill="white" opacity="0.9" />
-  <text x="35" y="18" text-anchor="middle" fill="#D52027" font-size="8" font-weight="bold">&#8376;</text>
+  <!-- Speedometer arc -->
+  <path
+    d="M8 32C8 20.954 16.954 12 28 12"
+    stroke="#D52027"
+    stroke-width="4"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <path
+    d="M12 36C12 24.954 19.954 16 32 16"
+    stroke="#D52027"
+    stroke-width="3"
+    stroke-linecap="round"
+    fill="none"
+    opacity="0.4"
+  />
+  <!-- Needle pointing to max -->
+  <line x1="24" y1="28" x2="38" y2="16" stroke="#D52027" stroke-width="3" stroke-linecap="round" />
+  <circle cx="24" cy="28" r="4" fill="#D52027" />
 </svg>
