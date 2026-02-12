@@ -1,0 +1,30 @@
+---
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  currentLang: Lang;
+}
+
+const { currentLang } = Astro.props;
+
+const languages = [
+  { code: 'ru' as Lang, label: 'RU', href: '/' },
+  { code: 'kk' as Lang, label: 'KK', href: '/kk/' },
+];
+---
+
+<div class="flex items-center gap-1 rounded-md border bg-background p-1">
+  {languages.map((lang) => (
+    <a
+      href={lang.href}
+      class:list={[
+        'px-2 py-1 text-sm font-medium rounded transition-colors',
+        currentLang === lang.code
+          ? 'bg-primary text-primary-foreground'
+          : 'text-muted-foreground hover:text-foreground hover:bg-muted',
+      ]}
+    >
+      {lang.label}
+    </a>
+  ))}
+</div>
