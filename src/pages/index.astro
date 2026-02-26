@@ -61,6 +61,9 @@ const plans = [
         <Logo size="md" />
         <div class="flex items-center gap-4">
           <LanguageSwitcher currentLang={lang} />
+          <Button variant="ghost" href="/instructions">
+            {t.common.instructions}
+          </Button>
           <Button variant="ghost" href={`${appUrl}/login`}>
             {t.common.login}
           </Button>
@@ -211,6 +214,14 @@ const plans = [
                 </div>
               </div>
           </div>
+        </div>
+
+        <!-- Instructions CTA -->
+        <div class="text-center mt-12 hiw-fade-in" style="animation-delay: 0.8s">
+          <p class="text-muted-foreground mb-4">Нужна помощь с первым шагом?</p>
+          <Button size="lg" class="text-lg" href="/instructions">
+            📋 Пошаговая инструкция по настройке
+          </Button>
         </div>
       </div>
     </section>

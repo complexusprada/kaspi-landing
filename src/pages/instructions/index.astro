@@ -1,0 +1,202 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Logo from '../../components/Logo.astro';
+import Button from '../../components/Button.astro';
+import Card from '../../components/Card.astro';
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+
+import { getTranslations } from '../../i18n/utils';
+
+const lang = 'ru';
+const t = getTranslations(lang);
+
+const kaspiUserSteps = [
+  { step: 1, ...t.instructions.step1 },
+  { step: 2, ...t.instructions.step2 },
+  { step: 3, ...t.instructions.step3 },
+  { step: 4, ...t.instructions.step4 },
+  { step: 5, ...t.instructions.step5 },
+  { step: 6, ...t.instructions.step6 },
+  { step: 7, ...t.instructions.step7 },
+  { step: 8, ...t.instructions.step8 },
+];
+
+const addMerchantSteps = [
+  { step: 1, ...t.add_merchant.step1 },
+  { step: 2, ...t.add_merchant.step2 },
+  { step: 3, ...t.add_merchant.step3 },
+  { step: 4, ...t.add_merchant.step4 },
+  { step: 5, ...t.add_merchant.step5 },
+  { step: 6, ...t.add_merchant.step6 },
+  { step: 7, ...t.add_merchant.step7 },
+  { step: 8, ...t.add_merchant.step8 },
+];
+---
+
+<Layout title="Инструкции — KASPIRACE" description="Пошаговые инструкции по настройке KASPIRACE" lang={lang}>
+  <div class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="border-b sticky top-0 bg-background/95 backdrop-blur z-40">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="/">
+          <Logo size="md" />
+        </a>
+        <div class="flex items-center gap-4">
+          <LanguageSwitcher currentLang={lang} />
+          <Button variant="ghost" href="/">
+            ← На главную
+          </Button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="py-16 pb-8 overflow-hidden">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4 inst-fade-in">
+          Инструкции
+        </h1>
+        <p class="text-xl text-muted-foreground inst-fade-in" style="animation-delay: 0.1s">
+          Пошаговые руководства по настройке и использованию KASPIRACE
+        </p>
+      </div>
+    </section>
+
+    <!-- Guide 1: Kaspi User -->
+    <section id="kaspi-user" class="py-12 overflow-hidden">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-3 inst-fade-in">
+            {t.instructions.title}
+          </h2>
+          <p class="text-lg text-muted-foreground inst-fade-in" style="animation-delay: 0.1s">
+            {t.instructions.subtitle}
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-8">
+          {kaspiUserSteps.map((item, index) => (
+            <div
+              class="inst-step"
+              style={`animation-delay: ${0.1 + index * 0.08}s`}
+            >
+              <Card class="overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+                <div class="p-6">
+                  <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 font-bold text-lg">
+                      {item.step}
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-semibold">{item.title}</h3>
+                      <p class="text-muted-foreground mt-1">{item.description}</p>
+                    </div>
+                  </div>
+                  <div class="rounded-lg overflow-hidden border bg-muted/30">
+                    <img
+                      src={`/img/instructions/${item.step}.png`}
+                      alt={item.title}
+                      class="w-full h-auto"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="container mx-auto px-4">
+      <hr class="max-w-4xl mx-auto border-primary/20" />
+    </div>
+
+    <!-- Guide 2: Add Merchant -->
+    <section id="add-merchant" class="py-12 overflow-hidden">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-3 inst-fade-in">
+            {t.add_merchant.title}
+          </h2>
+          <p class="text-lg text-muted-foreground inst-fade-in" style="animation-delay: 0.1s">
+            {t.add_merchant.subtitle}
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-8">
+          {addMerchantSteps.map((item, index) => (
+            <div
+              class="inst-step"
+              style={`animation-delay: ${0.1 + index * 0.08}s`}
+            >
+              <Card class="overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+                <div class="p-6">
+                  <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 font-bold text-lg">
+                      {item.step}
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-semibold">{item.title}</h3>
+                      <p class="text-muted-foreground mt-1">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to home -->
+    <section class="pb-16">
+      <div class="text-center">
+        <Button size="lg" href="/">
+          ← На главную
+        </Button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t py-8 bg-muted/30">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-muted-foreground text-sm">{t.footer.copyright}</p>
+      </div>
+    </footer>
+  </div>
+</Layout>
+
+<style>
+  .inst-fade-in {
+    animation: instFadeIn 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes instFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .inst-step {
+    animation: instStepIn 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes instStepIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
