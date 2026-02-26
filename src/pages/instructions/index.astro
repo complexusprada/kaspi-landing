@@ -25,11 +25,6 @@ const addMerchantSteps = [
   { step: 1, ...t.add_merchant.step1 },
   { step: 2, ...t.add_merchant.step2 },
   { step: 3, ...t.add_merchant.step3 },
-  { step: 4, ...t.add_merchant.step4 },
-  { step: 5, ...t.add_merchant.step5 },
-  { step: 6, ...t.add_merchant.step6 },
-  { step: 7, ...t.add_merchant.step7 },
-  { step: 8, ...t.add_merchant.step8 },
 ];
 ---
 
@@ -50,22 +45,29 @@ const addMerchantSteps = [
       </div>
     </header>
 
-    <!-- Page Title -->
-    <section class="py-16 pb-8 overflow-hidden">
+    <!-- Page Title + TOC -->
+    <section class="pt-16 pb-8 overflow-hidden">
       <div class="container mx-auto px-4 text-center">
-        <h1 class="text-3xl md:text-4xl font-bold mb-4 inst-fade-in">
+        <h1 class="text-3xl md:text-4xl font-bold mb-8 inst-fade-in">
           Инструкции
         </h1>
-        <p class="text-xl text-muted-foreground inst-fade-in" style="animation-delay: 0.1s">
-          Пошаговые руководства по настройке и использованию KASPIRACE
-        </p>
+        <div class="max-w-2xl mx-auto grid sm:grid-cols-2 gap-4 inst-fade-in" style="animation-delay: 0.1s">
+          <a href="#kaspi-user" class="flex items-center gap-3 p-4 rounded-xl border hover:border-primary/50 hover:shadow-md transition-all group">
+            <span class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 font-bold text-sm">1</span>
+            <span class="text-sm font-medium text-left group-hover:text-primary transition-colors">{t.instructions.title}</span>
+          </a>
+          <a href="#add-merchant" class="flex items-center gap-3 p-4 rounded-xl border hover:border-primary/50 hover:shadow-md transition-all group">
+            <span class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 font-bold text-sm">2</span>
+            <span class="text-sm font-medium text-left group-hover:text-primary transition-colors">{t.add_merchant.title}</span>
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- Guide 1: Kaspi User -->
     <section id="kaspi-user" class="py-12 overflow-hidden">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
+        <div class="max-w-4xl mx-auto mb-12">
           <h2 class="text-2xl md:text-3xl font-bold mb-3 inst-fade-in">
             {t.instructions.title}
           </h2>
@@ -115,7 +117,7 @@ const addMerchantSteps = [
     <!-- Guide 2: Add Merchant -->
     <section id="add-merchant" class="py-12 overflow-hidden">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
+        <div class="max-w-4xl mx-auto mb-12">
           <h2 class="text-2xl md:text-3xl font-bold mb-3 inst-fade-in">
             {t.add_merchant.title}
           </h2>
@@ -132,7 +134,7 @@ const addMerchantSteps = [
             >
               <Card class="overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all duration-300">
                 <div class="p-6">
-                  <div class="flex items-start gap-4">
+                  <div class="flex items-start gap-4 mb-4">
                     <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0 font-bold text-lg">
                       {item.step}
                     </div>
@@ -140,6 +142,14 @@ const addMerchantSteps = [
                       <h3 class="text-xl font-semibold">{item.title}</h3>
                       <p class="text-muted-foreground mt-1">{item.description}</p>
                     </div>
+                  </div>
+                  <div class="rounded-lg overflow-hidden border bg-muted/30">
+                    <img
+                      src={`/img/instructions/add-merchant/${item.step}.png`}
+                      alt={item.title}
+                      class="w-full h-auto"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </Card>
