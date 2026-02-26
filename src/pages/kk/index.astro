@@ -45,6 +45,33 @@ const plans = [
 ---
 
 <Layout title={t.meta.title} description={t.meta.description} lang={lang}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "KASPIRACE",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": t.meta.description,
+    "url": "https://kaspirace.kz",
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "10000",
+      "highPrice": "40000",
+      "priceCurrency": "KZT"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "ИП UQB",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Астана",
+        "streetAddress": "ул. Абекен Бектурова",
+        "addressCountry": "KZ"
+      },
+      "telephone": "+77074530648",
+      "url": "https://kaspirace.kz"
+    }
+  })} />
   <div class="min-h-screen bg-background">
     <!-- Promo Banner -->
     <div class="bg-gradient-to-r from-primary to-[#D52027] text-primary-foreground py-2 px-4 text-center text-sm sticky top-0 z-50">
@@ -218,7 +245,7 @@ const plans = [
 
         <!-- Instructions CTA -->
         <div class="text-center mt-12 hiw-fade-in" style="animation-delay: 0.8s">
-          <p class="text-muted-foreground mb-4">Бірінші қадамда көмек керек пе?</p>
+          <p class="text-muted-foreground mb-4">Kaspi ботты қосуда көмек керек пе?</p>
           <Button size="lg" class="text-lg" href="/kk/instructions">
             📋 Баптау бойынша қадамдық нұсқаулық
           </Button>
@@ -513,7 +540,7 @@ const plans = [
           {t.faq.title}
         </h2>
         <p class="text-xl text-muted-foreground text-center mb-12 faq-fade-in" style="animation-delay: 0.1s">
-          Танымал сұрақтарға жауаптар
+          Kaspi бот, демпинг және бағаны автотүсіру туралы барлығы
         </p>
         <div class="max-w-3xl mx-auto space-y-3">
           {[

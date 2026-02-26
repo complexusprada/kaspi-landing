@@ -10,6 +10,12 @@ interface Props {
 const { title, description, lang = 'ru' } = Astro.props;
 const siteUrl = Astro.site || new URL(import.meta.env.SITE || 'https://kaspirace.kz');
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+
+const pathname = Astro.url.pathname;
+const ruPath = pathname.replace(/^\/kk/, '') || '/';
+const kkPath = pathname.startsWith('/kk') ? pathname : `/kk${pathname}`;
+const ruURL = new URL(ruPath, siteUrl);
+const kkURL = new URL(kkPath, siteUrl);
 ---
 
 <!doctype html>
@@ -22,6 +28,11 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="ru" href={ruURL} />
+    <link rel="alternate" hreflang="kk" href={kkURL} />
+    <link rel="alternate" hreflang="x-default" href={ruURL} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
