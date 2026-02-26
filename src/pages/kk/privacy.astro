@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Logo from '../../components/Logo.astro';
+import Button from '../../components/Button.astro';
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+
+import { getTranslations } from '../../i18n/utils';
+
+const lang = 'kk';
+const t = getTranslations(lang);
+---
+
+<Layout title="Құпиялылық саясаты — KASPIRACE" description="KASPIRACE жеке деректерді өңдеу және құпиялылық саясаты" lang={lang}>
+  <div class="min-h-screen bg-background">
+    <!-- Header -->
+    <header class="border-b sticky top-0 bg-background/95 backdrop-blur z-40">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="/kk">
+          <Logo size="md" />
+        </a>
+        <div class="flex items-center gap-4">
+          <LanguageSwitcher currentLang={lang} />
+          <Button variant="ghost" href="/kk">
+            ← Басты бетке
+          </Button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Privacy Policy Content -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto prose prose-neutral">
+          <h1 class="text-3xl md:text-4xl font-bold mb-8">Құпиялылық саясаты</h1>
+          <p class="text-muted-foreground mb-6">Күшіне ену күні: 2025 жылғы 1 қаңтар</p>
+
+          <p>ЖК UQB (бұдан әрі — «Компания», «біз») kaspirace.kz және app.kaspirace.kz мекенжайлары бойынша орналасқан KASPIRACE сервисін (бұдан әрі — «Сервис») пайдаланушылардың жеке деректерін қорғауды қамтамасыз етеді.</p>
+
+          <h2 class="text-2xl font-bold mt-10 mb-4">1. Біз қандай деректер жинаймыз</h2>
+          <p>Сервисті пайдалану кезінде біз келесі жеке деректерді жинай аламыз:</p>
+          <ul class="list-disc pl-6 space-y-2 my-4">
+            <li>Аты және электрондық пошта мекенжайы (Google арқылы тіркелу кезінде)</li>
+            <li>Kaspi сатушы кабинетінің тіркелгі деректері (email және құпия сөз) — автоматтандыруды қосу үшін</li>
+            <li>Kaspi сатушы кабинетіндегі тауарлар мен бағалар туралы ақпарат</li>
+            <li>Техникалық ақпарат: IP-мекенжай, браузер түрі, құрылғы деректері</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold mt-10 mb-4">2. Деректерді өңдеу мақсаттары</h2>
+          <p>Біз жеке деректерді келесі мақсаттарда пайдаланамыз:</p>
+          <ul class="list-disc pl-6 space-y-2 my-4">
+            <li>Сервиске және оның функционалына қол жеткізуді қамтамасыз ету</li>
+            <li>Kaspi сатушы кабинетінде бағаларды автоматты бақылау және жаңарту</li>
+            <li>Қызмет көрсету және техникалық қолдау мәселелері бойынша пайдаланушымен байланысу</li>
+            <li>Сервис сапасын жақсарту</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold mt-10 mb-4">3. Деректерді қорғау</h2>
+          <p>Біз жеке деректерді рұқсатсыз кіруден, өзгертуден, ашудан немесе жоюдан қорғау үшін ұйымдастырушылық және техникалық шараларды қолданамыз. Kaspi сатушы кабинетінің тіркелгі деректері шифрланған түрде сақталады.</p>
+
+          <h2 class="text-2xl font-bold mt-10 mb-4">4. Деректерді үшінші тұлғаларға беру</h2>
+          <p>Біз Қазақстан Республикасының заңнамасында көзделген жағдайлардан басқа, жеке деректерді үшінші тұлғаларға сатпаймыз, алмаспаймыз және бермейміз.</p>
+
+          <h2 class="text-2xl font-bold mt-10 mb-4">5. Хабарламалар жіберу</h2>
+          <p>Компания Пайдаланушыға жаңа өнімдер мен қызметтер, арнайы ұсыныстар және түрлі оқиғалар туралы хабарламалар жіберуге құқылы. Пайдаланушы support@kaspirace.kz электрондық пошта мекенжайына «Хабарламалардан бас тарту» деген белгімен хат жіберу арқылы хабарламалардан бас тарта алады.</p>
+
+          <h2 class="text-2xl font-bold mt-10 mb-4">6. Cookie файлдары</h2>
+          <p>Сервис дұрыс жұмыс істеуді, аутентификацияны және пайдаланушы тәжірибесін жақсартуды қамтамасыз ету үшін cookie файлдарын пайдалана алады.</p>
+
+          <h2 class="text-2xl font-bold mt-10 mb-4">7. Пайдаланушы құқықтары</h2>
+          <p>Пайдаланушы құқылы:</p>
+          <ul class="list-disc pl-6 space-y-2 my-4">
+            <li>Сақталған жеке деректер туралы ақпарат сұрау</li>
+            <li>Деректерін түзетуді немесе жоюды талап ету</li>
+            <li>Жеке деректерді өңдеуге келісімін кері қайтарып алу</li>
+            <li>Аккаунтын және барлық байланысты деректерді жою</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold mt-10 mb-4">8. Байланыс ақпараты</h2>
+          <p>Жеке деректерді өңдеуге қатысты сұрақтар бойынша бізбен байланысуға болады:</p>
+          <ul class="list-none space-y-2 my-4">
+            <li><strong>Компания:</strong> ЖК UQB</li>
+            <li><strong>Мекенжай:</strong> Астана қ., Абекен Бектұров к.</li>
+            <li><strong>Телефон:</strong> 8 707 453 06 48</li>
+            <li><strong>Email:</strong> support@kaspirace.kz</li>
+          </ul>
+
+          <h2 class="text-2xl font-bold mt-10 mb-4">9. Саясаттағы өзгерістер</h2>
+          <p>Біз осы Құпиялылық саясатына өзгерістер енгізу құқығын сақтаймыз. Өзекті нұсқа әрқашан осы бетте қолжетімді.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t py-8 bg-muted/30">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-muted-foreground text-sm">{t.footer.copyright}</p>
+      </div>
+    </footer>
+  </div>
+</Layout>
