@@ -38,10 +38,10 @@ const whatsappLink = `https://wa.me/${contactPhone.replace(/^8/, '7')}`;
 const telegramLink = `https://t.me/+${contactPhone.replace(/^8/, '7')}`;
 
 const plans = [
-  { name: 'Старт', price: '10 000', cities: 1, products: 200 },
-  { name: 'Медиум', price: '20 000', cities: 1, products: 400 },
-  { name: 'Эксперт', price: '30 000', cities: 1, products: 800, popular: true },
-  { name: 'Гуру', price: '40 000', cities: 1, products: 1600 },
+  { name: 'Старт', price: '10 000', cities: 1, products: 200, turbo: 3 },
+  { name: 'Медиум', price: '20 000', cities: 1, products: 400, turbo: 5 },
+  { name: 'Эксперт', price: '30 000', cities: 1, products: 800, turbo: 7, popular: true },
+  { name: 'Гуру', price: '40 000', cities: 1, products: 1600, turbo: 9 },
 ];
 ---
 
@@ -161,6 +161,10 @@ const plans = [
           <div class="flex items-center gap-2">
             <Check class="w-4 h-4 text-green-500 shrink-0" />
             <span>{t.features.autoincrement.title}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <Check class="w-4 h-4 text-green-500 shrink-0" />
+            <span>{t.features.turbo.title}</span>
           </div>
         </div>
 
@@ -430,6 +434,12 @@ const plans = [
                         <Check class="w-3 h-3 text-green-600" />
                       </div>
                       <span class="text-sm">{t.pricing.products.replace('{count}', plan.products.toString())}</span>
+                    </li>
+                    <li class="flex items-center gap-3 pricing-feature" style="animation-delay: 0.45s">
+                      <div class="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                        <Zap class="w-3 h-3 text-primary" />
+                      </div>
+                      <span class="text-sm font-medium text-primary">{t.pricing.turbo_products.replace('{count}', plan.turbo.toString())}</span>
                     </li>
                     <li class="flex items-center gap-3 pricing-feature" style="animation-delay: 0.5s">
                       <div class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center shrink-0">
