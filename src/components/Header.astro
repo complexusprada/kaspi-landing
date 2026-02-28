@@ -1,0 +1,79 @@
+---
+import Logo from './Logo.astro';
+import Button from './Button.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  lang: 'ru' | 'kk';
+  instructionsHref: string;
+  loginHref: string;
+  instructionsLabel: string;
+  loginLabel: string;
+  hasPromoBanner?: boolean;
+}
+
+const { lang, instructionsHref, loginHref, instructionsLabel, loginLabel, hasPromoBanner = false } = Astro.props;
+---
+
+<header class:list={["border-b sticky bg-background/95 backdrop-blur z-40", hasPromoBanner ? "top-[36px]" : "top-0"]}>
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <Logo size="md" />
+
+    <!-- Desktop nav -->
+    <div class="hidden sm:flex items-center gap-4">
+      <LanguageSwitcher currentLang={lang} />
+      <Button variant="ghost" href={instructionsHref}>
+        {instructionsLabel}
+      </Button>
+      <Button href={loginHref}>
+        {loginLabel}
+      </Button>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      type="button"
+      class="sm:hidden w-10 h-10 flex items-center justify-center rounded-md hover:bg-muted transition-colors"
+      id="mobile-menu-btn"
+      aria-label="Menu"
+    >
+      <svg class="hamburger-icon w-6 h-6 transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg class="close-icon w-6 h-6 hidden transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu dropdown -->
+  <div id="mobile-menu" class="sm:hidden hidden border-t bg-background">
+    <div class="container mx-auto px-4 py-4 flex flex-col gap-3">
+      <div class="flex justify-center">
+        <LanguageSwitcher currentLang={lang} />
+      </div>
+      <a href={instructionsHref} class="text-sm font-medium py-2 px-3 rounded-md hover:bg-muted transition-colors text-center">
+        {instructionsLabel}
+      </a>
+      <Button href={loginHref} class="w-full">
+        {loginLabel}
+      </Button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const hamburgerIcon = menuBtn?.querySelector('.hamburger-icon');
+  const closeIcon = menuBtn?.querySelector('.close-icon');
+
+  menuBtn?.addEventListener('click', () => {
+    const isHidden = menu?.classList.toggle('hidden');
+    hamburgerIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+</script>

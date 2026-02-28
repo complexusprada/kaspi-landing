@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 import Logo from '../components/Logo.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
@@ -113,21 +114,14 @@ const plans = [
       <span class="sm:hidden"> = 3 дня бесплатно!</span>
     </div>
 
-    <!-- Header -->
-    <header class="border-b sticky top-[36px] bg-background/95 backdrop-blur z-40">
-      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Logo size="md" />
-        <div class="flex items-center gap-4">
-          <LanguageSwitcher currentLang={lang} />
-          <Button variant="ghost" href="/instructions">
-            {t.common.instructions}
-          </Button>
-          <Button variant="ghost" href={`${appUrl}/login`}>
-            {t.common.login}
-          </Button>
-        </div>
-      </div>
-    </header>
+    <Header
+      lang={lang}
+      instructionsHref="/instructions"
+      loginHref={`${appUrl}/login`}
+      instructionsLabel={t.common.instructions}
+      loginLabel={t.common.login}
+      hasPromoBanner
+    />
 
     <!-- Hero Section -->
     <section class="container mx-auto px-4 py-8">

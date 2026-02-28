@@ -1,31 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Logo from '../../components/Logo.astro';
-import Button from '../../components/Button.astro';
-import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+import Header from '../../components/Header.astro';
 
 import { getTranslations } from '../../i18n/utils';
 
 const lang = 'kk';
 const t = getTranslations(lang);
+const appUrl = import.meta.env.PUBLIC_APP_URL || 'https://app.kaspirace.kz';
 ---
 
 <Layout title="Құпиялылық саясаты — KASPIRACE" description="KASPIRACE жеке деректерді өңдеу және құпиялылық саясаты" lang={lang}>
   <div class="min-h-screen bg-background">
-    <!-- Header -->
-    <header class="border-b sticky top-0 bg-background/95 backdrop-blur z-40">
-      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/kk">
-          <Logo size="md" />
-        </a>
-        <div class="flex items-center gap-4">
-          <LanguageSwitcher currentLang={lang} />
-          <Button variant="ghost" href="/kk">
-            ← Басты бетке
-          </Button>
-        </div>
-      </div>
-    </header>
+    <Header
+      lang={lang}
+      instructionsHref="/kk/instructions"
+      loginHref={`${appUrl}/login`}
+      instructionsLabel={t.common.instructions}
+      loginLabel={t.common.login}
+    />
 
     <!-- Privacy Policy Content -->
     <section class="py-16">
