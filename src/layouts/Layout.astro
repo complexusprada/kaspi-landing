@@ -55,6 +55,15 @@ const kkURL = new URL(kkPath, siteUrl);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <title>{title}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17953493848"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17953493848');
+    </script>
   </head>
   <body class="min-h-screen bg-background antialiased overflow-x-hidden">
     <slot />
